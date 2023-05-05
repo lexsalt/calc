@@ -13,7 +13,7 @@ body {
   font-size: 2vh;
 }
 #bg {
-  background-color: #1B7F79;
+  background-color: darkgray;
   margin: 0;
   padding: 0;
   display: flex;
@@ -28,13 +28,13 @@ p {
   /* text-shadow: black 1px 1px 2px; */
 }
 
-#drum-machine {
-    background-color: darkgrey;
+#calculator {
+    background-color: #1B7F79;
     display: flex;
     border: 1px black solid;
     box-shadow: 2px 2px 4px #000;
     border-radius: 5px;
-    padding: 1.5vw;
+    padding: 2vw;
     }
     .display {
       grid-area: display;
@@ -53,6 +53,7 @@ p {
       text-align: right;
       color: white;
       border: 1px black solid;
+      border-radius: 5px;
       box-shadow:
         inset 1px 1px 4px 0px #050505,
         0px 0px 0px 0px #000;
@@ -69,47 +70,39 @@ p {
       grid-area: operator;
       display: flex;
       flex-direction: column;
-      background-color: #00CCC0;
       padding: 0;
       margin: 0;
     }
     .number {
       grid-area: number;
-      background-color: #72F2EB;
       display: grid;
       justify-items: center;
       grid-template-columns: 33.33% 33.33% 33.33%;
       grid-template-rows: 33.33% 33.33% 33.33%;
       padding: 0;
-      margin: 0;
     }
     .decimal {
       grid-area: decimal;
-      background-color: #72F2EB;
       padding: 0;
       margin: 0;
     }
      .zeroToHero {
-      background-color: #72F2EB;
       grid-area: zeroToHero;
       padding: 0;
       margin: 0;
     }
     .equal {
       grid-area: equal;
-      background-color: #1B7F79;
       padding: 0;
       margin: 0;
     }
     .clear {
       grid-area: clear;
-      background-color: #FF4858;
       display: flex;
       padding: 0;
       margin: 0;
     }
     .operator2 {
-      background-color: #00CCC0;
       grid-area: operator2;
       display: flex;
       padding: 0;
@@ -142,7 +135,6 @@ p {
     }
 
 button {
-  background-color: transparent;
  display: flex;
     justify-content: center;
     align-items: center;
@@ -155,6 +147,7 @@ button {
   height: 100%;
   border: 1px solid black;
   opacity: 1;
+  border-radius: 5px;
 }
 button:hover {
   cursor: pointer;

@@ -410,6 +410,7 @@ class App extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
+          firstInput: false,
           decimal: false,
           currentNum1: [0],
           result: [0]
@@ -433,6 +434,7 @@ class App extends React.Component {
         this.pressedDivide = this.pressedDivide.bind(this);
         this.pressedMultiply = this.pressedMultiply.bind(this);
         this.pressedBackSpace = this.pressedBackSpace.bind(this);
+        this.pressedEqual = this.pressedEqual.bind(this);
       }
       componentDidMount(event) {
         document.addEventListener("keydown", this.handleKeyPress)
@@ -477,19 +479,27 @@ class App extends React.Component {
         else if (event.code === "Multiply" | event.code === "NumpadMultiply") {
           this.pressedMultiply();
         }
-        else if (event.code === "Multiply" | event.code === "Backspace") {
+        else if (event.code === "Backspace") {
           this.pressedBackSpace();
         }
-        else if (event.code === "Multiply" | event.code === "Slash") {
+        else if (event.code === "Slash") {
           this.pressedDivide();
+        }
+        else if (event.code === "Minus") {
+          this.pressedSubstract();
+        }
+        else if (event.code === "Plus") {
+          this.pressedAdd();
+        }
+        else if (event.code === "Equal" | event.code === "Enter") {
+          this.pressedEqual();
         }
         console.log("Keycode es " + event.keyCode)
         console.log("Event es " + event.code)
       }
       pressedDigit1() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [1] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [1] }))
         } else {
           let joined = this.state.currentNum1.concat(1);
           this.setState(state => ({ currentNum1: joined }))
@@ -497,8 +507,7 @@ class App extends React.Component {
       }
       pressedDigit2() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [2] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [2] }))
         } else {
           let joined = this.state.currentNum1.concat(2);
           this.setState(state => ({ currentNum1: joined }))
@@ -506,8 +515,7 @@ class App extends React.Component {
       }
       pressedDigit3() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [3] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [3] }))
         } else {
           let joined = this.state.currentNum1.concat(3);
           this.setState(state => ({ currentNum1: joined }))
@@ -515,8 +523,7 @@ class App extends React.Component {
       }
       pressedDigit4() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [4] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [4] }))
         } else {
           let joined = this.state.currentNum1.concat(4);
           this.setState(state => ({ currentNum1: joined }))
@@ -524,8 +531,7 @@ class App extends React.Component {
       }
       pressedDigit5() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [5] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [5] }))
         } else {
           let joined = this.state.currentNum1.concat(5);
           this.setState(state => ({ currentNum1: joined }))
@@ -533,8 +539,7 @@ class App extends React.Component {
       }
       pressedDigit6() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [6] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [6] }))
         } else {
           let joined = this.state.currentNum1.concat(6);
           this.setState(state => ({ currentNum1: joined }))
@@ -542,18 +547,15 @@ class App extends React.Component {
       }
       pressedDigit7() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [7] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [7] }))
         } else {
           let joined = this.state.currentNum1.concat(7);
           this.setState(state => ({ currentNum1: joined }))
         }
-
       }
       pressedDigit8() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [8] }))
-
+          this.setState(state => ({ firstInput: true, currentNum1: [8] }))
         } else {
           let joined = this.state.currentNum1.concat(8);
           this.setState(state => ({ currentNum1: joined }))
@@ -561,68 +563,148 @@ class App extends React.Component {
       }
       pressedDigit9() {
         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ currentNum1: [9] }))
-1
+          this.setState(state => ({ firstInput: true, currentNum1: [9] }))
         } else {
           let joined = this.state.currentNum1.concat(9);
           this.setState(state => ({ currentNum1: joined }))
         }
       }
-      pressedDigit0() { if (this.state.currentNum1[0] === 0 && this.state.currentNum1.length === 1) {
+      pressedDigit0() {
+        if (this.state.currentNum1[0] === 0 && this.state.currentNum1.length === 1) {
         console.log("cannot print 2 zeroes in a row at start")
       } else {
         let joined = this.state.currentNum1.concat(0);
-        this.setState(state => ({ currentNum1: joined }))}
+        this.setState(state => ({ firstInput: true, currentNum1: joined }))}
       }
       pressedDecimal() {
-        if (!this.state.decimal) {
-          if (this.state.currentNum1.length === 0) {
-            let joined = this.state.currentNum1.concat("0.");
-            this.setState(state => ({ decimal: true, currentNum1: joined }))
-          } else if (this.state.currentNum1[this.state.currentNum1.length-1] === "*" | this.state.currentNum1[this.state.currentNum1.length-1] === "/" | this.state.currentNum1[this.state.currentNum1.length-1] === "+" | this.state.currentNum1[this.state.currentNum1.length-1] === "-" | this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
-        console.log("cannot print decimal after operator")
+        if (!this.state.firstInput) {
+          let joined = this.state.currentNum1.concat(".");
+          console.log("1: "+joined)
+            this.setState(state => ({ firstInput: true, decimal: true, currentNum1: joined }))
+        } else if (this.state.firstInput) {
+          if (!this.state.decimal) {
+          if (this.state.currentNum1[this.state.currentNum1.length-1] === "*" | this.state.currentNum1[this.state.currentNum1.length-1] === "/" | this.state.currentNum1[this.state.currentNum1.length-1] === "+" | this.state.currentNum1[this.state.currentNum1.length-1] === "-") {
+            let addZero = this.state.currentNum1.concat(0);
+            let joined = addZero.concat(".");
+        this.setState(state => ({ firstInput: true, decimal: true, currentNum1: joined }))
+        console.log("Added zero because of decimal pressed after operator")
           } else {
             let joined = this.state.currentNum1.concat(".");
-            this.setState(state => ({ decimal: true, currentNum1: joined }))
+            this.setState(state => ({ firstInput: true, decimal: true, currentNum1: joined }))
           }
         } else if (this.state.decimal) {
           console.log("cannot print two decimal in a number")
         }
+        }        
       }
       pressedClear() {
-        this.setState(state => ({ decimal: false, currentNum1: [], result: [] }))
+        this.setState(state => ({ firstInput: false, decimal: false, currentNum1: [0], result: [] }))
       }
-      pressedAdd() { if (this.state.currentNum1.length === 0) {
-        console.log("cannot print operator at start")
-      } else if (this.state.currentNum1[this.state.currentNum1.length-1] === "*" | this.state.currentNum1[this.state.currentNum1.length-1] === "/" | this.state.currentNum1[this.state.currentNum1.length-1] === "+" | this.state.currentNum1[this.state.currentNum1.length-1] === "-" | this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
-        console.log("cannot print two operators in a row")
+      pressedAdd() {
+        if (!this.state.firstInput) {
+        let poped = this.state.currentNum1;
+        poped.pop()
+        let operatorReplaced = poped.concat("+")
+        this.setState(state => ({ firstInput: true, currentNum1: operatorReplaced }))
+        console.log("Replaced zero for Plus operator")
+        } 
+        else if (this.state.firstInput) {
+          if (
+        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "-" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
+        let poped = this.state.currentNum1;
+        poped.pop()
+        let operatorReplaced = poped.concat("+")
+        this.setState(state => ({ firstInput: true, currentNum1: operatorReplaced }))
+        console.log("Only second operator is valid")
       } else {
         let joined = this.state.currentNum1.concat("+");
-        this.setState(state => ({ currentNum1: joined }))}
+        this.setState(state => ({ decimal: false, currentNum1: joined }))}
+        } 
       }
-      pressedSubstract() { if (this.state.currentNum1[this.state.currentNum1.length-1] === "+" | this.state.currentNum1[this.state.currentNum1.length-1] === "-" | this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
-        console.log("cannot print after operator or decimal")
-      } else {
+      pressedSubstract() {
+        if (!this.state.firstInput) {
+          let poped = this.state.currentNum1;
+        poped.pop()
+        let operatorReplaced = poped.concat("-")
+        this.setState(state => ({ firstInput: true, currentNum1: operatorReplaced }))
+        console.log("Replaced zero for Minus operator")
+        } else if (this.state.firstInput) {
+          if (
+        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
+        let poped = this.state.currentNum1;
+        poped.pop()
+        let operatorReplaced = poped.concat("-")
+        this.setState(state => ({ currentNum1: operatorReplaced }))
+        console.log("Only second operator is valid")
+      } else if (
+          this.state.currentNum1[this.state.currentNum1.length-1] === "-" && this.state.currentNum1[this.state.currentNum1.length-2] === "-") {
+            let poped = this.state.currentNum1;
+        poped.pop()
+        let operatorReplaced = poped.concat("-")
+        this.setState(state => ({ currentNum1: operatorReplaced }))
+        console.log("Cannot print 3 substract in a row")
+        } else {
         let joined = this.state.currentNum1.concat("-");
-        this.setState(state => ({ currentNum1: joined }))}
+        this.setState(state => ({ decimal: false, currentNum1: joined }))}
+        }
       }
-      pressedDivide() { if (this.state.currentNum1.length === 0) {
-        console.log("cannot print operator at start")
-      } else if (this.state.currentNum1[this.state.currentNum1.length-1] === "*" | this.state.currentNum1[this.state.currentNum1.length-1] === "/" | this.state.currentNum1[this.state.currentNum1.length-1] === "+" | this.state.currentNum1[this.state.currentNum1.length-1] === "-" | this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
-        console.log("cannot print two operators in a row")
+      pressedDivide() {
+        if (!this.state.firstInput) {
+          console.log("cannot print Divide at start")
+        }
+        else if (this.state.firstInput) {
+          if(this.state.currentNum1.length === 1 && (this.state.currentNum1[0] === "+" | this.state.currentNum1[0] === "-")) {
+            console.log("Cannot print Divide after Plus or Minus at start")
+        } else if ( this.state.currentNum1.length >=1 && (
+        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "-" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "." )
+)
+{
+        let poped = this.state.currentNum1;
+        poped.pop()
+        let operatorReplaced = poped.concat("/")
+        this.setState(state => ({ currentNum1: operatorReplaced }))
+        console.log("Only second operator is valid")
       } else {
         let joined = this.state.currentNum1.concat("/");
-        this.setState(state => ({ currentNum1: joined }))}
+        this.setState(state => ({ decimal: false, currentNum1: joined }))}
+        }
       }
-      pressedMultiply() { if (this.state.currentNum1.length === 0) {
-        console.log("cannot print operator at start")
-      } else if (this.state.currentNum1[this.state.currentNum1.length-1] === "*" | this.state.currentNum1[this.state.currentNum1.length-1] === "/" | this.state.currentNum1[this.state.currentNum1.length-1] === "+" | this.state.currentNum1[this.state.currentNum1.length-1] === "-" | this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
-        console.log("cannot print two operators in a row")
+      pressedMultiply() {
+        if (!this.state.firstInput) {
+          console.log("cannot print Multiply at start")
+        } else if (this.state.firstInput) {
+          if(this.state.currentNum1.length === 1 && (this.state.currentNum1[0] === "+" | this.state.currentNum1[0] === "-")) {
+            console.log("Cannot print Multiply after Plus or Minus at start")
+        } else if ( this.state.currentNum1.length >=1 && (
+        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === "-" | 
+        this.state.currentNum1[this.state.currentNum1.length-1] === ".")) {
+        let poped = this.state.currentNum1;
+        poped.pop()
+        let operatorReplaced = poped.concat("*")
+        this.setState(state => ({ currentNum1: operatorReplaced }))
+        console.log("Only second operator is valid")
       } else {
         let joined = this.state.currentNum1.concat("*");
-        this.setState(state => ({ currentNum1: joined }))}
+        this.setState(state => ({ decimal: false, currentNum1: joined }))}
+
+        } 
       }
-      pressedBackSpace() { if (this.state.currentNum1.length === 0) {
+      pressedBackSpace() {
+        if (this.state.currentNum1.length === 0) {
         console.log("nothing to erase")
       } else if (this.state.currentNum1.length > 0) {
         let poped = this.state.currentNum1;
@@ -630,56 +712,82 @@ class App extends React.Component {
         this.setState(state => ({ currentNum1: poped }))
       }
       }
+      pressedEqual() {
+        const preview = this.state.currentNum1
+        const previa = preview.join("")
+        console.log("previa es: "+previa)
+        const test = previa.valueOf()
+        console.log(test)
+        console.log("preview es: "+preview)
+        console.log("type of test es: "+typeof(previa))
+        console.log("number de test es: "+Number(test))
+        console.log("number de test es: "+typeof(Number(test)))
+        console.log('currentNum1: '+preview)
+      }
 
       render() {
         const digits1 = this.state.currentNum1
         //const firstInt = digits1.reduce((accum, digit) => (accum * 10) + digit, 0)
-        const firstInt = digits1.join("")
+        const userInput = digits1.join("")
 
         return (
 
           <div id="bg">
-            <div class="inner-container" id="drum-machine">
+            <div class="inner-container" id="calculator">
               <div class="pad-bank">
-                <div class="display">
-                  <div id="display">
-                    <div>{this.state.result}</div>
-                    <div>{firstInt}</div>
-                    </div>
+                <div class="display">{userInput}<div>{this.state.result}</div>
                 </div>
                 <div class="number">
-                  <button id="one" onClick={this.pressedDigit1}>1</button>
-                  <button id="two" onClick={this.pressedDigit2}>2</button>
-                  <button id="three" onClick={this.pressedDigit3}>3</button>
-                  <button id="four" onClick={this.pressedDigit4}>4</button>
-                  <button id="five" onClick={this.pressedDigit5}>5</button>
-                  <button id="six" onClick={this.pressedDigit6}>6</button>
-                  <button id="seven" onClick={this.pressedDigit7}>7</button>
-                  <button id="eight" onClick={this.pressedDigit8}>8</button>
-                  <button id="nine" onClick={this.pressedDigit9}>9</button>
+                  <button id="one" onClick={this.pressedDigit1}
+                  style={{ background: "#72F2EB"}}>1</button>
+                  <button id="two" onClick={this.pressedDigit2}
+                  style={{ background: "#72F2EB"}}>2</button>
+                  <button id="three" onClick={this.pressedDigit3}
+                  style={{ background: "#72F2EB"}}>3</button>
+                  <button id="four" onClick={this.pressedDigit4}
+                  style={{ background: "#72F2EB"}}>4</button>
+                  <button id="five" onClick={this.pressedDigit5}
+                  style={{ background: "#72F2EB"}}>5</button>
+                  <button id="six" onClick={this.pressedDigit6}
+                  style={{ background: "#72F2EB"}}>6</button>
+                  <button id="seven" onClick={this.pressedDigit7}
+                  style={{ background: "#72F2EB"}}>7</button>
+                  <button id="eight" onClick={this.pressedDigit8}
+                  style={{ background: "#72F2EB"}}>8</button>
+                  <button id="nine" onClick={this.pressedDigit9}
+                  style={{ background: "#72F2EB"}}>9</button>
                 </div>
                 <div class="operator">
-                  <button id="sustract" onClick={this.pressedSubstract}>-</button>
-                  <button id="add" onClick={this.pressedAdd}>+</button>
+                  <button id="substract" onClick={this.pressedSubstract}
+                  style={{ background: "#00CCC0"}}>-</button>
+                  <button id="add" onClick={this.pressedAdd}
+                  style={{ background: "#00CCC0"}}>+</button>
                   </div>
                 <div class="clear">
-                  <button id="clear" onClick={this.pressedClear}>AC</button>
-                  <button id="backSpace" onClick={this.pressedBackSpace}>Back</button>
+                  <button id="clear" onClick={this.pressedClear}
+                  style={{ background: "#FF4858"}}>AC</button>
+                  <button id="backSpace" onClick={this.pressedBackSpace}
+                  style={{ background: "#FF4858"}}>Back</button>
                 </div>
 
                 <div class="operator2">
-                  <button id="divide" onClick={this.pressedDivide}>/</button>
-                  <button id="multiply" onClick={this.pressedMultiply}>x</button>
+                  <button id="divide" onClick={this.pressedDivide}
+                  style={{ background: "#00CCC0"}}>/</button>
+                  <button id="multiply" onClick={this.pressedMultiply}
+                  style={{ background: "#00CCC0"}}>x</button>
                 </div>
                 <div class="zeroToHero">
-                  <button id="zero" onClick={this.pressedDigit0}>0</button>
+                  <button id="zero" onClick={this.pressedDigit0}
+                  style={{ background: "#72F2EB"}}>0</button>
                 </div>
                 <div class="decimal">
-                  <button id="decimal" onClick={this.pressedDecimal}>.</button>
+                  <button id="decimal" onClick={this.pressedDecimal}
+                  style={{ background: "#72F2EB"}}>.</button>
 
                 </div>
                 <div class="equal">
-                  <button id="equals">=</button>
+                  <button id="equals" onClick={this.pressedEqual}
+                  style={{ background: "#00CCC0"}}>=</button>
                 </div>
               </div>
             </div>
