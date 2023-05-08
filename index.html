@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <title>Calc</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
@@ -18,402 +18,17 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    // class App extends React.Component {
-    //   constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         status: "On",
-    //       statusColor: 'green',
-    //       currentSound: ""
-    //     };
-
-    //     this.handleKeyPress = this.handleKeyPress.bind(this);
-    //     this.switchOnOff = this.switchOnOff.bind(this);  
-    //     this.pressedQ = this.pressedQ.bind(this);
-    //         this.pressedW = this.pressedW.bind(this);
-    //         this.pressedE = this.pressedE.bind(this);
-    //         this.pressedA = this.pressedA.bind(this);
-    //         this.pressedS = this.pressedS.bind(this);
-    //         this.pressedD = this.pressedD.bind(this);
-    //         this.pressedZ = this.pressedZ.bind(this);
-    //         this.pressedX = this.pressedX.bind(this);
-    //         this.pressedC = this.pressedC.bind(this);
-    //   }
-    //   // Change code below this line
-    //   componentDidMount(event) {
-    //     document.addEventListener("keydown", this.handleKeyPress)
-    //   }
-    //   componentWillUnmount() {
-    //     document.removeEventListener("keydown", this.handleKeyPress)
-    //   }
-    //   // Change code above this line
-    //   handleKeyPress(event) {
-    //     if (event.keyCode === 81) {
-    //         this.pressedQ();
-    //     }
-    //     else if (event.keyCode === 87) {
-    //         this.pressedW();
-    //     }
-    //     else if (event.keyCode === 69) {
-    //         this.pressedE();
-    //     }
-    //     else if (event.keyCode === 65) {
-    //         this.pressedA();
-    //     }
-    //     else if (event.keyCode === 83) {
-    //         this.pressedS();
-    //     }
-    //     else if (event.keyCode === 68) {
-    //         this.pressedD();
-    //     }
-    //     else if (event.keyCode === 90) {
-    //         this.pressedZ();
-    //     }
-    //     else if (event.keyCode === 88) {
-    //         this.pressedX();
-    //     }
-    //     else if (event.keyCode === 67) {
-    //         this.pressedC();
-    //     }
-    //     //console.log("Keycode es "+event.keyCode)
-    //   }
-    //   switchOnOff() {
-    //     if (this.state.status === "On") {
-    //       this.setState(state => ({
-    //    status: "Off",
-    //         statusColor: "red",
-    //         currentSound: ""
-    // }))
-    //     }
-    //     else if (this.state.status === "Off") {
-    //       this.setState( state => ({
-    //         status: "On",
-    //         statusColor: "green"
-    //       }))
-    //     }
-
-    // }
-    //   pressedQ() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("Q");
-    //     sound.play();
-    //     this.setState(state => ({currentSound: "Heater-1"}))}}  
-    //   pressedW() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("W");
-    //     sound.play();
-    //     this.setState(state => ({currentSound: "Heater-2"}))}}
-    //   pressedE() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("E");
-    //     sound.play();
-    //     this.setState(state => ({currentSound: "Heater-3"}))}}
-    //   pressedA() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("A");
-    //     sound.play();
-    //     this.setState(state => ({currentSound: "Heater-4"}))}}
-    //   pressedS() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("S");
-    //     sound.play();
-    //     this.setState(state => ({currentSound: "Clap"}))}}
-    //   pressedD() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("D");
-    //     sound.play();
-    //     this.setState(state => ({currentSound: "Open-HH"}))}}
-    //   pressedZ() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("Z");
-    //     sound.play();
-    //     this.setState(state => ({currentSound: "Kick-n'-Hat"}))}}
-    //   pressedX() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("X");
-    //     sound.play();    
-    //     this.setState(state => ({currentSound: "Kick"}))}}
-    //   pressedC() {if (this.state.status === "On") {
-    //     const sound = document.getElementById("C");
-    //     sound.play();    
-    //     this.setState(state => ({currentSound: "Closed-HH"}))}}
-    //   render() {
-    //     return (
-    //       <div id="bg">
-    //   <div class="inner-container" id="drum-machine">
-    //         <div class="pad-bank">
-    //           <div>
-    //             <button class="drum-pad" id="Heater-1" onClick={this.pressedQ}><audio class="clip" id="Q" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"></audio>Q</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Heater-2" onClick={this.pressedW}
-    //              ><audio class="clip" id="W" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"></audio>W</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Heater-3" onClick={this.pressedE}><audio class="clip" id="E" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"></audio>E</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Heater-4" onClick={this.pressedA}><audio class="clip" id="A" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"></audio>A</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Clap" onClick={this.pressedS}><audio class="clip" id="S" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"></audio>S</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Open-HH" onClick={this.pressedD}><audio class="clip" id="D" src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"></audio>D</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Kick-n'-Hat" onClick={this.pressedZ}><audio class="clip" id="Z" src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"></audio>Z</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Kick" onClick={this.pressedX}><audio class="clip" id="X" src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"></audio>X</button>
-    //           </div>
-    //           <div>
-    //             <button class="drum-pad" id="Closed-HH" onClick={this.pressedC}><audio class="clip" id="C" src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"></audio>C</button>
-    //           </div>
-    //         </div>
-    //         <div class="controls-container">
-    //           <p id="power">Power</p>
-    //           <button id="powerButton" onClick={() => this.switchOnOff()} style={{background: this.state.statusColor}}><p>{this.state.status}</p></button>
-    //           <p id="power">Sound:</p>
-    //             <div id="display"><p>{this.state.currentSound}</p></div>
-    // </div>
-    //         </div>
-    //         </div>
-    //     );
-    //   }
-    // };
-
-//     class App extends React.Component {
-//       constructor(props) {
-//         super(props);
-//         this.state = {
-//           decimal: false,
-//           currentNum1: [],
-//           currentNum2: [],
-//           operator: [],
-//           result: []
-//         };
-
-//         this.handleKeyPress = this.handleKeyPress.bind(this);
-//         this.pressedDigit1 = this.pressedDigit1.bind(this);
-//         this.pressedDigit2 = this.pressedDigit2.bind(this);
-//         this.pressedDigit3 = this.pressedDigit3.bind(this);
-//         this.pressedDigit4 = this.pressedDigit4.bind(this);
-//         this.pressedDigit5 = this.pressedDigit5.bind(this);
-//         this.pressedDigit6 = this.pressedDigit6.bind(this);
-//         this.pressedDigit7 = this.pressedDigit7.bind(this);
-//         this.pressedDigit8 = this.pressedDigit8.bind(this);
-//         this.pressedDigit9 = this.pressedDigit9.bind(this);
-//         this.pressedDigit0 = this.pressedDigit0.bind(this);
-//         this.pressedDecimal = this.pressedDecimal.bind(this);
-//         this.pressedClear = this.pressedClear.bind(this);
-//       }
-//       // Change code below this line
-//       componentDidMount(event) {
-//         document.addEventListener("keydown", this.handleKeyPress)
-//       }
-//       componentWillUnmount() {
-//         document.removeEventListener("keydown", this.handleKeyPress)
-//       }
-//       // Change code above this line
-//       handleKeyPress(event) {
-//         if (event.code === "Digit1") {
-//           this.pressedDigit1();
-//         }
-//         else if (event.code === "Digit2") {
-//           this.pressedDigit2();
-//         }
-//         else if (event.code === "Digit3") {
-//           this.pressedDigit3();
-//         }
-//         else if (event.code === "Digit4") {
-//           this.pressedDigit4();
-//         }
-//         else if (event.code === "Digit5") {
-//           this.pressedDigit5();
-//         }
-//         else if (event.code === "Digit6") {
-//           this.pressedDigit6();
-//         }
-//         else if (event.code === "Digit7") {
-//           this.pressedDigit7();
-//         }
-//         else if (event.code === "Digit8") {
-//           this.pressedDigit8();
-//         }
-//         else if (event.code === "Digit9") {
-//           this.pressedDigit9();
-//         }
-//         else if (event.code === "Digit0") {
-//           this.pressedDigit0();
-//         }
-//         else if (event.code === "Period") {
-//           this.pressedDecimal();
-//         }
-//         console.log("Keycode es " + event.keyCode)
-//         console.log("Event es " + event.code)
-//       }
-//       pressedDigit1() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [1] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(1);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit2() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [2] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(2);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit3() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [3] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(3);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit4() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [4] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(4);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit5() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [5] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(5);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit6() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [6] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(6);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit7() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [7] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(7);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-
-//       }
-//       pressedDigit8() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [8] }))
-
-//         } else {
-//           let joined = this.state.currentNum1.concat(8);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit9() {
-//         if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-//           this.setState(state => ({ currentNum1: [9] }))
-// 1
-//         } else {
-//           let joined = this.state.currentNum1.concat(9);
-//           this.setState(state => ({ currentNum1: joined }))
-//         }
-//       }
-//       pressedDigit0() { if (this.state.currentNum1[0] === 0 && this.state.currentNum1.length === 1) {
-//         console.log("cannot print 2 zeroes in a row at start")
-//       } else {
-//         let joined = this.state.currentNum1.concat(0);
-//         this.setState(state => ({ currentNum1: joined }))
-//       }  
-//       }
-//       pressedDecimal() {
-//         if (!this.state.decimal) {
-//           if (this.state.currentNum1.length === 0) {
-//             let joined = this.state.currentNum1.concat("0.");
-//             this.setState(state => ({ decimal: true, currentNum1: joined }))
-//           } else {
-//             let joined = this.state.currentNum1.concat(".");
-//             this.setState(state => ({ decimal: true, currentNum1: joined }))
-//           }
-//         } else if (this.state.decimal) {
-//           console.log("cannot print two decimal in a number")
-//         }
-//       }
-//       pressedClear() {
-//         this.setState(state => ({ decimal: false, currentNum1: [], result: [] }))
-//       }
 
 
-
-//       render() {
-//         const backColors = ["#FF4858", "#1B7F79", "#00CCC0", "#72F2EB", "#747F7F"]
-//         const digits1 = this.state.currentNum1
-//         //const firstInt = digits1.reduce((accum, digit) => (accum * 10) + digit, 0)
-//         const firstInt = digits1.join("")
-
-//         return (
-//           <div id="bg">
-//             <div class="inner-container" id="drum-machine">
-//               <div class="pad-bank">
-//                 <div class="display" style={{ backgroundColor: backColors[4] }}>
-//                   <div id="display">{firstInt+" "+this.state.operator+" "+this.state.currentNum2}</div>
-//                   <div id="display">{this.state.result}</div>
-//                 </div>
-//                 <div class="number">
-//                   <button id="one" onClick={this.pressedDigit1}>1</button>
-//                   <button id="two" onClick={this.pressedDigit2}>2</button>
-//                   <button id="three" onClick={this.pressedDigit3}>3</button>
-//                   <button id="four" onClick={this.pressedDigit4}>4</button>
-//                   <button id="five" onClick={this.pressedDigit5}>5</button>
-//                   <button id="six" onClick={this.pressedDigit6}>6</button>
-//                   <button id="seven" onClick={this.pressedDigit7}>7</button>
-//                   <button id="eight" onClick={this.pressedDigit8}>8</button>
-//                   <button id="nine" onClick={this.pressedDigit9}>9</button>
-//                 </div>
-//                 <div class="operator">
-//                   <button id="sustract">-</button>
-//                   <button id="add">+</button></div>
-//                 <div class="clear">
-//                   <button id="clear" onClick={this.pressedClear}>AC</button>
-//                 </div>
-
-//                 <div class="operator2">
-//                   <button id="divide">/</button>
-//                   <button id="multiply">x</button>
-//                 </div>
-//                 <div class="zeroToHero">
-//                   <button id="zero" onClick={this.pressedDigit0}>0</button>
-//                 </div>
-//                 <div class="decimal">
-//                   <button id="decimal" onClick={this.pressedDecimal}>.</button>
-
-//                 </div>
-//                 <div class="equal">
-//                   <button id="equals">=</button>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         );
-//       }
-//     };
-
-class App extends React.Component {
+    class App extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
           firstInput: false,
           decimal: false,
-          currentNum1: [0],
-          result: [0]
+          input: [],
+          output: [0],
+          equalStored: null
         };
 
         this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -430,374 +45,723 @@ class App extends React.Component {
         this.pressedDecimal = this.pressedDecimal.bind(this);
         this.pressedClear = this.pressedClear.bind(this);
         this.pressedAdd = this.pressedAdd.bind(this);
-        this.pressedSubstract = this.pressedSubstract.bind(this);
+        this.pressedSubtract = this.pressedSubtract.bind(this);
         this.pressedDivide = this.pressedDivide.bind(this);
         this.pressedMultiply = this.pressedMultiply.bind(this);
         this.pressedBackSpace = this.pressedBackSpace.bind(this);
         this.pressedEqual = this.pressedEqual.bind(this);
       }
       componentDidMount(event) {
-        document.addEventListener("keydown", this.handleKeyPress)
+        document.addEventListener("keydown", this.handleKeyPress);
       }
       componentWillUnmount() {
-        document.removeEventListener("keydown", this.handleKeyPress)
+        document.removeEventListener("keydown", this.handleKeyPress);
       }
       handleKeyPress(event) {
-        if (event.code === "Digit1" | event.code === "Numpad1") {
+        event.target.blur();
+        if ((event.code === "Digit1") | (event.code === "Numpad1")) {
           this.pressedDigit1();
-        }
-        else if (event.code === "Digit2" | event.code === "Numpad2") {
+        } else if ((event.code === "Digit2") | (event.code === "Numpad2")) {
           this.pressedDigit2();
-        }
-        else if (event.code === "Digit3" | event.code === "Numpad3") {
+        } else if ((event.code === "Digit3") | (event.code === "Numpad3")) {
           this.pressedDigit3();
-        }
-        else if (event.code === "Digit4" | event.code === "Numpad4") {
+        } else if ((event.code === "Digit4") | (event.code === "Numpad4")) {
           this.pressedDigit4();
-        }
-        else if (event.code === "Digit5" | event.code === "Numpad5") {
+        } else if ((event.code === "Digit5") | (event.code === "Numpad5")) {
           this.pressedDigit5();
-        }
-        else if (event.code === "Digit6" | event.code === "Numpad6") {
+        } else if ((event.code === "Digit6") | (event.code === "Numpad6")) {
           this.pressedDigit6();
-        }
-        else if (event.code === "Digit7" | event.code === "Numpad7") {
+        } else if ((event.code === "Digit7") | (event.code === "Numpad7")) {
           this.pressedDigit7();
-        }
-        else if (event.code === "Digit8" | event.code === "Numpad8") {
+        } else if ((event.code === "Digit8") | (event.code === "Numpad8")) {
           this.pressedDigit8();
-        }
-        else if (event.code === "Digit9" | event.code === "Numpad9") {
+        } else if ((event.code === "Digit9") | (event.code === "Numpad9")) {
           this.pressedDigit9();
-        }
-        else if (event.code === "Digit0" | event.code === "Numpad0") {
+        } else if ((event.code === "Digit0") | (event.code === "Numpad0")) {
           this.pressedDigit0();
-        }
-        else if (event.code === "Period" | event.code === "NumpadDecimal") {
+        } else if (
+          (event.code === "Period") |
+          (event.code === "NumpadDecimal")
+        ) {
           this.pressedDecimal();
-        }
-        else if (event.code === "Multiply" | event.code === "NumpadMultiply") {
+        } else if (
+          (event.code === "Multiply") |
+          (event.code === "NumpadMultiply")
+        ) {
           this.pressedMultiply();
-        }
-        else if (event.code === "Backspace") {
+        } else if (event.code === "Backspace") {
           this.pressedBackSpace();
-        }
-        else if (event.code === "Slash") {
+        } else if (
+          (event.code === "Slash") |
+          (event.code === "NumpadDivide")
+        ) {
           this.pressedDivide();
-        }
-        else if (event.code === "Minus") {
-          this.pressedSubstract();
-        }
-        else if (event.code === "Plus") {
+        } else if (
+          (event.code === "Minus") |
+          (event.code === "NumpadSubtract")
+        ) {
+          this.pressedSubtract();
+        } else if ((event.code === "Add") | (event.code === "NumpadAdd")) {
           this.pressedAdd();
-        }
-        else if (event.code === "Equal" | event.code === "Enter") {
+        } else if (
+          (event.code === "Equal") |
+          (event.code === "NumpadEnter") |
+          (event.code === "Enter")
+        ) {
           this.pressedEqual();
         }
-        console.log("Keycode es " + event.keyCode)
-        console.log("Event es " + event.code)
+        //console.log("Keycode es " + event.keyCode);
+        //console.log("Event es " + event.code);
       }
       pressedDigit1() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [1] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [1] }));
         } else {
-          let joined = this.state.currentNum1.concat(1);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(1);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit2() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [2] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [2] }));
         } else {
-          let joined = this.state.currentNum1.concat(2);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(2);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit3() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [3] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [3] }));
         } else {
-          let joined = this.state.currentNum1.concat(3);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(3);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit4() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [4] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [4] }));
         } else {
-          let joined = this.state.currentNum1.concat(4);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(4);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit5() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [5] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [5] }));
         } else {
-          let joined = this.state.currentNum1.concat(5);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(5);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit6() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [6] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [6] }));
         } else {
-          let joined = this.state.currentNum1.concat(6);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(6);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit7() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [7] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [7] }));
         } else {
-          let joined = this.state.currentNum1.concat(7);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(7);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit8() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [8] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [8] }));
         } else {
-          let joined = this.state.currentNum1.concat(8);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(8);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit9() {
-        if (this.state.currentNum1.length === 1 && this.state.currentNum1[0] === 0) {
-          this.setState(state => ({ firstInput: true, currentNum1: [9] }))
+        if (
+          this.state.input.length === 1 &&
+          (this.state.input[0] === 0) | (this.state.input[0] === "+")
+        ) {
+          this.setState((state) => ({ firstInput: true, input: [9] }));
         } else {
-          let joined = this.state.currentNum1.concat(9);
-          this.setState(state => ({ currentNum1: joined }))
+          let joined = this.state.input.concat(9);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined,
+          }));
         }
       }
       pressedDigit0() {
-        if (this.state.currentNum1[0] === 0 && this.state.currentNum1.length === 1) {
-        console.log("cannot print 2 zeroes in a row at start")
-      } else {
-        let joined = this.state.currentNum1.concat(0);
-        this.setState(state => ({ firstInput: true, currentNum1: joined }))}
+        if (this.state.input[0] === 0 && this.state.input.length === 1) {
+          console.log("cannot print 2 zeroes in a row at start");
+        } else {
+          let joined = this.state.input.concat(0);
+          this.setState((state) => ({
+            firstInput: true,
+            input: joined,
+            output: joined
+          }));
+        }
       }
       pressedDecimal() {
         if (!this.state.firstInput) {
-          let joined = this.state.currentNum1.concat(".");
-          console.log("1: "+joined)
-            this.setState(state => ({ firstInput: true, decimal: true, currentNum1: joined }))
+          let joined = this.state.input.concat(".");
+          console.log("1: " + joined);
+          this.setState((state) => ({
+            firstInput: true,
+            decimal: true,
+            input: joined,
+          }));
         } else if (this.state.firstInput) {
           if (!this.state.decimal) {
-          if (this.state.currentNum1[this.state.currentNum1.length-1] === "*" | this.state.currentNum1[this.state.currentNum1.length-1] === "/" | this.state.currentNum1[this.state.currentNum1.length-1] === "+" | this.state.currentNum1[this.state.currentNum1.length-1] === "-") {
-            let addZero = this.state.currentNum1.concat(0);
-            let joined = addZero.concat(".");
-        this.setState(state => ({ firstInput: true, decimal: true, currentNum1: joined }))
-        console.log("Added zero because of decimal pressed after operator")
-          } else {
-            let joined = this.state.currentNum1.concat(".");
-            this.setState(state => ({ firstInput: true, decimal: true, currentNum1: joined }))
+            if (
+              (this.state.input[this.state.input.length - 1] === "*") |
+              (this.state.input[this.state.input.length - 1] === "/") |
+              (this.state.input[this.state.input.length - 1] === "+") |
+              (this.state.input[this.state.input.length - 1] === "-")
+            ) {
+              let addZero = this.state.input.concat(0);
+              let joined = addZero.concat(".");
+              this.setState((state) => ({
+                firstInput: true,
+                decimal: true,
+                input: joined,
+                output: joined
+              }));
+              console.log(
+                "Added zero because of decimal pressed after operator"
+              );
+            } else {
+              let joined = this.state.input.concat(".");
+              console.log("default decimal")
+              this.setState((state) => ({
+                firstInput: true,
+                decimal: true,
+                input: joined,
+                output: joined
+              }));
+
+            }
+          } else if (this.state.decimal) {
+            console.log("cannot print two decimal in a number");
           }
-        } else if (this.state.decimal) {
-          console.log("cannot print two decimal in a number")
         }
-        }        
       }
       pressedClear() {
-        this.setState(state => ({ firstInput: false, decimal: false, currentNum1: [0], result: [] }))
+        this.setState((state) => ({
+          firstInput: false,
+          decimal: false,
+          input: [],
+          output: [0],
+        }));
       }
       pressedAdd() {
         if (!this.state.firstInput) {
-        let poped = this.state.currentNum1;
-        poped.pop()
-        let operatorReplaced = poped.concat("+")
-        this.setState(state => ({ firstInput: true, currentNum1: operatorReplaced }))
-        console.log("Replaced zero for Plus operator")
-        } 
+          let poped = this.state.input;
+          poped.pop();
+          let operatorReplaced = poped.concat("+");
+          this.setState((state) => ({
+            firstInput: true,
+            input: operatorReplaced,
+            output: operatorReplaced
+          }));
+          console.log("Replaced zero for Plus operator");
+        }
         else if (this.state.firstInput) {
-          if (
-        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "-" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
-        let poped = this.state.currentNum1;
-        poped.pop()
-        let operatorReplaced = poped.concat("+")
-        this.setState(state => ({ firstInput: true, currentNum1: operatorReplaced }))
-        console.log("Only second operator is valid")
-      } else {
-        let joined = this.state.currentNum1.concat("+");
-        this.setState(state => ({ decimal: false, currentNum1: joined }))}
-        } 
+          if (this.state.input[this.state.input.length - 1] === "-" && (this.state.input[this.state.input.length - 2] === "*" | this.state.input[this.state.input.length - 2] === "*")) {
+            let poped = this.state.input;
+            poped.pop();
+            poped.pop();
+            let operatorReplaced = poped.concat("+");
+            this.setState((state) => ({
+              firstInput: true,
+              input: operatorReplaced,
+              output: operatorReplaced
+            }));
+            console.log("Replaced minus and operator, because only second operator is valid");
+          } else if (
+            (this.state.input[this.state.input.length - 1] === "*") |
+            (this.state.input[this.state.input.length - 1] === "/") |
+            (this.state.input[this.state.input.length - 1] === "+") |
+            (this.state.input[this.state.input.length - 1] === "-") |
+            (this.state.input[this.state.input.length - 1] === ".")
+          ) {
+            let poped = this.state.input;
+            poped.pop();
+            let operatorReplaced = poped.concat("+");
+            this.setState((state) => ({
+              firstInput: true,
+              input: operatorReplaced,
+              output: operatorReplaced
+            }));
+            console.log("Only second operator is valid");
+          }
+          else {
+            let joined = this.state.input.concat("+");
+            this.setState((state) => ({
+              firstInput: true,
+              decimal: false,
+              input: joined,
+              output: joined
+            }));
+          }
+        }
+
       }
-      pressedSubstract() {
+      pressedSubtract() {
         if (!this.state.firstInput) {
-          let poped = this.state.currentNum1;
-        poped.pop()
-        let operatorReplaced = poped.concat("-")
-        this.setState(state => ({ firstInput: true, currentNum1: operatorReplaced }))
-        console.log("Replaced zero for Minus operator")
+          let poped = this.state.input;
+          poped.pop();
+          let operatorReplaced = poped.concat("-");
+          this.setState((state) => ({
+            firstInput: true,
+            input: operatorReplaced,
+          }));
+          console.log("Replaced zero for Minus operator");
         } else if (this.state.firstInput) {
           if (
-        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "." ) {
-        let poped = this.state.currentNum1;
-        poped.pop()
-        let operatorReplaced = poped.concat("-")
-        this.setState(state => ({ currentNum1: operatorReplaced }))
-        console.log("Only second operator is valid")
-      } else if (
-          this.state.currentNum1[this.state.currentNum1.length-1] === "-" && this.state.currentNum1[this.state.currentNum1.length-2] === "-") {
-            let poped = this.state.currentNum1;
-        poped.pop()
-        let operatorReplaced = poped.concat("-")
-        this.setState(state => ({ currentNum1: operatorReplaced }))
-        console.log("Cannot print 3 substract in a row")
-        } else {
-        let joined = this.state.currentNum1.concat("-");
-        this.setState(state => ({ decimal: false, currentNum1: joined }))}
+            (this.state.input[this.state.input.length - 1] === "+") |
+            (this.state.input[this.state.input.length - 1] === ".")
+          ) {
+            let poped = this.state.input;
+            poped.pop();
+            let operatorReplaced = poped.concat("-");
+            this.setState((state) => ({
+              input: operatorReplaced,
+              output: operatorReplaced
+            }));
+            console.log("Only second operator is valid");
+          } else if (
+            this.state.input[this.state.input.length - 1] === "-" &&
+            this.state.input[this.state.input.length - 2] === "-"
+          ) {
+            let poped = this.state.input;
+            poped.pop();
+            let operatorReplaced = poped.concat("-");
+            this.setState((state) => ({
+              input: operatorReplaced,
+              output: operatorReplaced
+            }));
+            console.log("Cannot print 3 Subtract in a row");
+          } else if (
+            this.state.input[this.state.input.length - 1] === "-" &&
+            (this.state.input[this.state.input.length - 2] === "+" | this.state.input[this.state.input.length - 2] === "*" | this.state.input[this.state.input.length - 2] === "/")
+          ) {
+            console.log("Cannot print 2 Subtract after operator");
+          } else {
+            let joined = this.state.input.concat("-");
+            this.setState((state) => ({
+              firstInput: true,
+              decimal: false,
+              input: joined,
+              output: joined
+            }));
+          }
         }
       }
       pressedDivide() {
         if (!this.state.firstInput) {
-          console.log("cannot print Divide at start")
-        }
-        else if (this.state.firstInput) {
-          if(this.state.currentNum1.length === 1 && (this.state.currentNum1[0] === "+" | this.state.currentNum1[0] === "-")) {
-            console.log("Cannot print Divide after Plus or Minus at start")
-        } else if ( this.state.currentNum1.length >=1 && (
-        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "-" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "." )
-)
-{
-        let poped = this.state.currentNum1;
-        poped.pop()
-        let operatorReplaced = poped.concat("/")
-        this.setState(state => ({ currentNum1: operatorReplaced }))
-        console.log("Only second operator is valid")
-      } else {
-        let joined = this.state.currentNum1.concat("/");
-        this.setState(state => ({ decimal: false, currentNum1: joined }))}
+          console.log("cannot print Divide at start");
+        } else if (this.state.firstInput) {
+          if (
+            this.state.input.length === 1 &&
+            (this.state.input[0] === "+") | (this.state.input[0] === "-")
+          ) {
+            console.log("Cannot print Divide after Plus or Minus at start");
+          } else if (
+            this.state.input.length >= 1 &&
+            (this.state.input[this.state.input.length - 1] === "*") |
+            (this.state.input[this.state.input.length - 1] === "/") |
+            (this.state.input[this.state.input.length - 1] === "+") |
+            (this.state.input[this.state.input.length - 1] === "-") |
+            (this.state.input[this.state.input.length - 1] === ".")
+          ) {
+            let poped = this.state.input;
+            poped.pop();
+            let operatorReplaced = poped.concat("/");
+            this.setState((state) => ({ input: operatorReplaced }));
+            console.log("Only second operator is valid");
+          } else {
+            let joined = this.state.input.concat("/");
+            this.setState((state) => ({
+              decimal: false,
+              input: joined,
+              output: joined
+            }));
+          }
         }
       }
       pressedMultiply() {
         if (!this.state.firstInput) {
-          console.log("cannot print Multiply at start")
+          console.log("cannot print Multiply at start");
         } else if (this.state.firstInput) {
-          if(this.state.currentNum1.length === 1 && (this.state.currentNum1[0] === "+" | this.state.currentNum1[0] === "-")) {
-            console.log("Cannot print Multiply after Plus or Minus at start")
-        } else if ( this.state.currentNum1.length >=1 && (
-        this.state.currentNum1[this.state.currentNum1.length-1] === "*" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "/" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "+" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === "-" | 
-        this.state.currentNum1[this.state.currentNum1.length-1] === ".")) {
-        let poped = this.state.currentNum1;
-        poped.pop()
-        let operatorReplaced = poped.concat("*")
-        this.setState(state => ({ currentNum1: operatorReplaced }))
-        console.log("Only second operator is valid")
-      } else {
-        let joined = this.state.currentNum1.concat("*");
-        this.setState(state => ({ decimal: false, currentNum1: joined }))}
-
-        } 
+          if (
+            this.state.input.length === 1 &&
+            (this.state.input[0] === "+") | (this.state.input[0] === "-")
+          ) {
+            console.log("Cannot print Multiply after Plus or Minus at start");
+          } else if (
+            this.state.input.length >= 1 &&
+            (this.state.input[this.state.input.length - 1] === "*") |
+            (this.state.input[this.state.input.length - 1] === "/") |
+            (this.state.input[this.state.input.length - 1] === "+") |
+            (this.state.input[this.state.input.length - 1] === "-") |
+            (this.state.input[this.state.input.length - 1] === ".")
+          ) {
+            let poped = this.state.input;
+            poped.pop();
+            let operatorReplaced = poped.concat("*");
+            this.setState((state) => ({
+              input: operatorReplaced,
+              output: operatorReplaced
+            }));
+            console.log("Only second operator is valid");
+          } else {
+            let joined = this.state.input.concat("*");
+            this.setState((state) => ({
+              decimal: false,
+              input: joined,
+              output: joined
+            }));
+          }
+        }
       }
       pressedBackSpace() {
-        if (this.state.currentNum1.length === 0) {
-        console.log("nothing to erase")
-      } else if (this.state.currentNum1.length > 0) {
-        let poped = this.state.currentNum1;
-        poped.pop()
-        this.setState(state => ({ currentNum1: poped }))
-      }
+        if (this.state.input.length === 1) {
+          console.log("Last digit erased");
+          this.setState((state) => ({ firstInput: false, input: [0] }));
+        } else if (this.state.input.length > 0) {
+          let poped = this.state.input;
+          poped.pop();
+          this.setState((state) => ({
+            input: poped,
+            output: poped
+          }));
+        }
       }
       pressedEqual() {
-        const preview = this.state.currentNum1
-        const previa = preview.join("")
-        console.log("previa es: "+previa)
-        const test = previa.valueOf()
-        console.log(test)
-        console.log("preview es: "+preview)
-        console.log("type of test es: "+typeof(previa))
-        console.log("number de test es: "+Number(test))
-        console.log("number de test es: "+typeof(Number(test)))
-        console.log('currentNum1: '+preview)
+        let finalInput = this.state.input;
+        function endsWithOperator(input) {
+          if (
+            input.length >= 1 &&
+            (input[input.length - 1] === "*") |
+            (input[input.length - 1] === "/") |
+            (input[input.length - 1] === "+") |
+            (input[input.length - 1] === "-")
+          ) {
+            let poped = input;
+            poped.pop();
+            //console.log("poped es: " + poped)
+            return poped
+          } else if (input.length >= 1 &&
+            (input[input.length - 1] === ".")) {
+            let joined = input;
+            joined.concat(0)
+            //console.log("joined es: " + joined)
+            return joined
+          } else {
+            return input
+          }
+        }
+        let finalChecked = endsWithOperator(finalInput)
+        console.log("finalcheck es: " + finalChecked)
+        let convertToString = finalChecked.join("");
+        //console.log("convertToString es: " + convertToString);
+        let valueOfString = convertToString.valueOf();
+        //console.log("valor es: " + valueOfString);
+        let calculus = eval(valueOfString);
+
+        function checkNumber(x) {
+          // check if the passed value is a number
+          if (typeof x == "number" && !isNaN(x)) {
+            // check if it is integer
+            if (Number.isInteger(x)) {
+              //console.log(`${x} is integer.`);
+              return Math.floor(x);
+            } else {
+              //console.log(`${x} is a float value.`);
+              //Math.round((y + Number.EPSILON) * 100) / 100
+              return Number(x.toFixed(5));
+            }
+          } else {
+            //console.log(`${x} is not a number`);
+          }
+        }
+        let calculate = checkNumber(calculus);
+        //console.log("calculus es: " + calculate);
+        //console.log("type of calculate: " + typeof calculate);
+        this.setState((state) => ({
+          firstInput: false,
+          input: convertToString+"="+calculate,
+          output: [calculate],
+          equalStored: [calculate]
+        }));
       }
 
       render() {
-        const digits1 = this.state.currentNum1
+        // ACA TENGO QUE HACER UNA FUNCION PARA QUE MUESTRE EN LA PREVIA CUANDO ES NaN sin tirar error
+
+        //const digits1 = this.state.input;
         //const firstInt = digits1.reduce((accum, digit) => (accum * 10) + digit, 0)
-        const userInput = digits1.join("")
+        //const numberInput = digits1.join("");
+        //console.log(typeof Number(numberInput));
+        let numberInput = this.state.input
+        console.log(numberInput)
+        let numberOutput = this.state.output
+        let start = this.state.firstInput
+        function checkingOutput(x) {
+          if (start) {
+            let init = x.join("")
+            if (x[x.length - 1] === ".") {
+              return init
+            }
+            console.log("x es: " + x)
+            console.log("output init: " + init)
+            if (isNaN(init)) {
+              return init;
+            }
+            return init;
+          } else if (!start) {
+            return numberOutput[0]
+          }
+        }
+        function checkingInput(x) {
+          if (start) {
+            let init = x.join("")
+            if (x[x.length - 1] === ".") {
+              return init
+            }
+            console.log("init es: " + init)
+            if (isNaN(init)) {
+              return init;
+            }
+            return init;
+          } else if (!start) {
+            return null
+          }
+        }
+        const userInput = checkingInput(numberInput);
+        const userOutput = checkingOutput(numberOutput);
+        console.log("typeof userInput: " + typeof userInput)
+        console.log("userInput: " + userInput)
+        console.log("typeof userOutput: " + typeof userOutput)
+        console.log("userOutput: " + userOutput)
+        //const userInput = numberInput;
 
         return (
-
           <div id="bg">
             <div class="inner-container" id="calculator">
               <div class="pad-bank">
-                <div class="display">{userInput}<div>{this.state.result}</div>
+                <div class="display">
+                  <div id="display2">{numberInput}</div>
+                  <div id="display">{userOutput}</div>
                 </div>
                 <div class="number">
-                  <button id="one" onClick={this.pressedDigit1}
-                  style={{ background: "#72F2EB"}}>1</button>
-                  <button id="two" onClick={this.pressedDigit2}
-                  style={{ background: "#72F2EB"}}>2</button>
-                  <button id="three" onClick={this.pressedDigit3}
-                  style={{ background: "#72F2EB"}}>3</button>
-                  <button id="four" onClick={this.pressedDigit4}
-                  style={{ background: "#72F2EB"}}>4</button>
-                  <button id="five" onClick={this.pressedDigit5}
-                  style={{ background: "#72F2EB"}}>5</button>
-                  <button id="six" onClick={this.pressedDigit6}
-                  style={{ background: "#72F2EB"}}>6</button>
-                  <button id="seven" onClick={this.pressedDigit7}
-                  style={{ background: "#72F2EB"}}>7</button>
-                  <button id="eight" onClick={this.pressedDigit8}
-                  style={{ background: "#72F2EB"}}>8</button>
-                  <button id="nine" onClick={this.pressedDigit9}
-                  style={{ background: "#72F2EB"}}>9</button>
+                  <button
+                    id="seven"
+                    onClick={this.pressedDigit7}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    7
+                  </button>
+                  <button
+                    id="eight"
+                    onClick={this.pressedDigit8}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    8
+                  </button>
+                  <button
+                    id="nine"
+                    onClick={this.pressedDigit9}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    9
+                  </button>
+                  <button
+                    id="four"
+                    onClick={this.pressedDigit4}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    4
+                  </button>
+                  <button
+                    id="five"
+                    onClick={this.pressedDigit5}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    5
+                  </button>
+                  <button
+                    id="six"
+                    onClick={this.pressedDigit6}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    6
+                  </button>
+                  <button
+                    id="one"
+                    onClick={this.pressedDigit1}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    1
+                  </button>
+                  <button
+                    id="two"
+                    onClick={this.pressedDigit2}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    2
+                  </button>
+                  <button
+                    id="three"
+                    onClick={this.pressedDigit3}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    3
+                  </button>
                 </div>
                 <div class="operator">
-                  <button id="substract" onClick={this.pressedSubstract}
-                  style={{ background: "#00CCC0"}}>-</button>
-                  <button id="add" onClick={this.pressedAdd}
-                  style={{ background: "#00CCC0"}}>+</button>
-                  </div>
+                  <button
+                    id="subtract"
+                    onClick={this.pressedSubtract}
+                    style={{ background: "#00CCC0" }}
+                  >
+                    -
+                  </button>
+                  <button
+                    id="add"
+                    onClick={this.pressedAdd}
+                    style={{ background: "#00CCC0" }}
+                  >
+                    +
+                  </button>
+                </div>
                 <div class="clear">
-                  <button id="clear" onClick={this.pressedClear}
-                  style={{ background: "#FF4858"}}>AC</button>
-                  <button id="backSpace" onClick={this.pressedBackSpace}
-                  style={{ background: "#FF4858"}}>Back</button>
+                  <button
+                    id="clear"
+                    onClick={this.pressedClear}
+                    style={{ background: "#FF4858" }}
+                  >
+                    AC
+                  </button>
+                  <button
+                    id="backSpace"
+                    onClick={this.pressedBackSpace}
+                    style={{ background: "#FF4858" }}
+                  >
+                    Back
+                  </button>
                 </div>
 
                 <div class="operator2">
-                  <button id="divide" onClick={this.pressedDivide}
-                  style={{ background: "#00CCC0"}}>/</button>
-                  <button id="multiply" onClick={this.pressedMultiply}
-                  style={{ background: "#00CCC0"}}>x</button>
+                  <button
+                    id="divide"
+                    onClick={this.pressedDivide}
+                    style={{ background: "#00CCC0" }}
+                  >
+                    /
+                  </button>
+                  <button
+                    id="multiply"
+                    onClick={this.pressedMultiply}
+                    style={{ background: "#00CCC0" }}
+                  >
+                    x
+                  </button>
                 </div>
                 <div class="zeroToHero">
-                  <button id="zero" onClick={this.pressedDigit0}
-                  style={{ background: "#72F2EB"}}>0</button>
+                  <button
+                    id="zero"
+                    onClick={this.pressedDigit0}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    0
+                  </button>
                 </div>
                 <div class="decimal">
-                  <button id="decimal" onClick={this.pressedDecimal}
-                  style={{ background: "#72F2EB"}}>.</button>
-
+                  <button
+                    id="decimal"
+                    onClick={this.pressedDecimal}
+                    style={{ background: "#72F2EB" }}
+                  >
+                    .
+                  </button>
                 </div>
                 <div class="equal">
-                  <button id="equals" onClick={this.pressedEqual}
-                  style={{ background: "#00CCC0"}}>=</button>
+                  <button
+                    id="equals"
+                    onClick={this.pressedEqual}
+                    style={{ background: "#00CCC0" }}
+                  >
+                    =
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         );
       }
-    };
+    }
 
-
-    const container = document.getElementById('root');
+    const container = document.getElementById("root");
     const root = ReactDOM.createRoot(container);
     root.render(<App />);
   </script>

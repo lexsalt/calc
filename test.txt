@@ -53,3 +53,31 @@
             return false
           } else return true
           }
+
+          const previa = preview.join("")
+        console.log("previa es: "+previa)
+        //let aver = valueOf(preview[0])+valueOf(preview[1])+valueOf(preview[2])
+        //console.log("aaver "+aver)
+        const test = previa.valueOf()
+        console.log("test es: "+test)
+        console.log("preview es: "+preview[0])
+        //console.log("type of test es: "+typeof(previa))
+        console.log("number de test es: "+Number(test))
+        console.log("number de test es: "+typeof(Number(test)))
+        console.log('currentNum1: '+preview)
+
+        <div class="formulaScreen"></div>
+        <div class="outputScreen" id="display"></div>
+      
+      if (!this.state.equalStored === null ) {
+          let joined = this.state.equalStored
+          joined.concat("+");
+          console.log("joined es:"+ joined)
+          this.setState((state) => ({
+            firstInput: true,
+            decimal: false,
+            input: joined,
+            output: joined
+          }));
+          console.log("sum to equalstored")
+        } else {}
